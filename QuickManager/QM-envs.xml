@@ -1,0 +1,63 @@
+﻿<envs>
+  <!-- F12 in the main window will show all the envs -->
+  <!-- Globals are ${Search} and Replace strings -->
+  <global>
+    <vars>
+      <var>
+        <name>COMPOSITE_VAR</name>
+        <value>ThisIsAComposite${EXAMPLE_VAR_0}VariableExample${EXAMPLE_VAR_2}</value>
+      </var>
+      <var>
+        <name>EXAMPLE_VAR_0</name>
+        <value>ThisIsAVariable</value>
+      </var>
+      <var>
+        <name>EXAMPLE_VAR_1</name>
+        <value>c:\apache-ant-1.7.1</value>
+      </var>
+      <var>
+        <name>EXAMPLE_VAR_2</name>
+        <value>somedir\modules</value>
+      </var>
+    </vars>
+  </global>
+  <!-- Envs acts on the actual environment of the launched process -->
+  <!-- This is the default ENV -->
+  <default>
+    <vars>
+      <var>
+        <name>JAVA_HOME</name>
+        <value>C:\bin\java6\32bit\jdk1.6.0_30</value>
+      </var>
+      <var>
+        <name>PATH</name>
+        <value>%JAVA_HOME%;%PATH%</value>
+      </var>
+      <var>
+        <name>JAVA</name>
+        <value>%JAVA_HOME%\bin\java.exe</value>
+      </var>
+    </vars>
+  </default>
+  <!-- Envs can be named -->
+  <env id="JAVA6">
+    <vars>
+      <var>
+        <name>ANT_HOME</name>
+        <value>c:\bin\apache-ant-1.7.1</value>
+      </var>
+      <var>
+        <name>JAVA_HOME</name>
+        <value>C:\bin\java6\32bit\jdk1.6.0_30</value>
+      </var>
+      <var>
+        <name>CATALINA_HOME</name>
+        <value>c:\bin\apache-tomcat-6.0.41</value>
+      </var>      
+      <var>
+        <name>PATH</name>
+        <value>%ANT_HOME%\bin;%JAVA_HOME%\bin;%SystemRoot%\system32;%SystemRoot%</value>
+      </var>
+    </vars>
+  </env>
+</envs>

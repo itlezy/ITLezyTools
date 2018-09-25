@@ -1,0 +1,72 @@
+﻿<config>
+  <title>Examples</title>
+  <monitor>
+    <monitorItem id="Tomcat">
+      <url>http://localhost:8080/Some/Servlet.do</url>
+    </monitorItem>
+    <monitorItem id="google.com" orderBy="-99">
+      <url>http://www.google.com</url>
+    </monitorItem>
+  </monitor>
+  <actions>
+    <!-- Do not change the ids - only change the paths -->
+    <action id="ch">C:\Program Files (x86)\Google\Chrome\Application\chrome.exe</action>
+    <action id="ie" default="true">C:\Program Files (x86)\Internet Explorer\iexplore.exe</action>
+    <action id="ff">C:\Program Files (x86)\Mozilla Firefox\firefox.exe</action>
+
+    <!-- Add custom actions -->
+    <action id="a-test-writeline" autoStart="true">
+      <launch env="JAVA6">
+        <exe>testwriteline.cmd</exe>
+        <parms>Access Envs ${COMPOSITE_VAR} %JAVA_HOME%</parms>
+        <encoding>Windows-1252</encoding>
+      </launch>
+      <stop canStop="false" />
+      <!-- Right click on the item to access config files, Variables can be used too i.e. ${COMPOSITE_VAR} -->
+      <config>
+        <configFile>c:\someconfigfile.conf</configFile>
+      </config>
+    </action>
+
+    <action id="srv-aspnet_state" orderBy="-10">
+      <launch >
+        <exe>net.exe</exe>
+        <parms>start aspnet_state</parms>
+      </launch>
+      <stop>
+        <launch>
+          <exe>net.exe</exe>
+          <parms>stop aspnet_state</parms>
+        </launch>
+      </stop>
+    </action>
+
+    <action id="writeToLogFile">
+      <launch>
+        <exe>%ComSpec%</exe>
+        <parms>/C testwriteline3.cmd</parms>
+      </launch>
+    </action>
+
+    <!-- To have both a monitor item and an action, use the same id -->
+    <!-- startAll="true" to launch or stop with SHIFT+F2 -->
+    <action id="Tomcat" startAll="true">
+      <launch env="JAVA6">
+        <exe>c:\bin\apache-tomcat-6.0.41\bin\catalina.bat</exe>
+        <parms>run</parms>
+      </launch>
+    </action>
+
+  </actions>
+
+  <!-- Access log files -->
+  <logs>
+    <log autoStart="true">
+      <path>c:\var\log\example.log</path>
+    </log>
+  </logs>
+
+  <!-- Include environments -->
+  <envs include="Qm-envs.xml" />
+
+</config>

@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{7EC4CF72-CC79-4C38-8D51-9B2967FE0224}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QuickManager</RootNamespace>
+    <AssemblyName>QuickManager</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <ApplicationIcon>..\res\satellite_dish.ico</ApplicationIcon>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <BaseAddress>4194304</BaseAddress>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>..\target</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>..\target</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <StartAction>Project</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\lib\log4net-1.2.13\bin\net\4.0\release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.4.3713.24741, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\ItemConfig.cs" />
+    <Compile Include="Config\MonitorConfig.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Network\NetworkProbe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Network\NetworkProbe.Designer.cs">
+      <DependentUpon>NetworkProbe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Network\PortScannerUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Network\PortScannerUserControl.Designer.cs">
+      <DependentUpon>PortScannerUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Network\PortScannerTarget.cs" />
+    <Compile Include="Network\ScanPort.cs" />
+    <Compile Include="PInvoke\ControlsHelper.cs" />
+    <Compile Include="Platform\System.cs" />
+    <Compile Include="Diagnostics\ExternalLauncher.cs" />
+    <Compile Include="Diagnostics\LaunchInfo.cs" />
+    <Compile Include="Diagnostics\ProcessConfigurationManager.cs" />
+    <Compile Include="Diagnostics\ProcessStopper.cs" />
+    <Compile Include="Diagnostics\RunningProcesses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Diagnostics\RunningProcesses.Designer.cs">
+      <DependentUpon>RunningProcesses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QuickManagerConfig-log4net.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="QuickManagerConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="testwriteline.cmd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Network\NetworkProbe.resx">
+      <DependentUpon>NetworkProbe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Network\PortScannerUserControl.resx">
+      <DependentUpon>PortScannerUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Diagnostics\RunningProcesses.resx">
+      <DependentUpon>RunningProcesses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="QM-envs.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{910bcc30-5aca-4b1d-a4c9-848c62f042b9}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Console\Console.csproj">
+      <Project>{cadb01da-c6d3-4439-9ae2-5bde8e0f0218}</Project>
+      <Name>Console</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Json\JsonViewer\JsonViewer.csproj">
+      <Project>{3AE264FB-52DC-4295-A37F-CE63CAF54930}</Project>
+      <Name>JsonViewer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Json\JsonView\JsonView.csproj">
+      <Project>{83D82889-66FA-41AC-932F-9AF3AE8EAA9C}</Project>
+      <Name>JsonView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OutputViewer\OutputViewer.csproj">
+      <Project>{12a55664-ffdf-47ce-97bf-9154124b5457}</Project>
+      <Name>OutputViewer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SCide-2.6\SCide-2.6.csproj">
+      <Project>{B46ECD31-2427-4CA9-96EE-22168BE30532}</Project>
+      <Name>SCide-2.6</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScintillaNET-2.6\ScintillaNET-2.6.csproj">
+      <Project>{F9B6DABD-BBC1-4638-8CE6-A5C9506BFDCB}</Project>
+      <Name>ScintillaNET-2.6</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ScratchPad\ScratchPad.csproj">
+      <Project>{0c633712-00c7-4af2-b32f-4890387319c0}</Project>
+      <Name>ScratchPad</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
