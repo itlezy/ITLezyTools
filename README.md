@@ -1,11 +1,13 @@
 ## IT Lezy Tools
-A collection of IT tools meant for the IT geek, admins and developers
+A collection of IT tools meant for the IT geek, admins and developers.
+
+Download it under [releases](https://github.com/itlezy/ITLezyTools/files/2415519/ITLezyTools_V1.0.zip)
 
 ### QuickManager
 An integrated process manager, where custom environments and commands can be defined. Integrated output viewer, task manager, editor, and much more.
-This tool is designed to help developers and admins who need to run processes, such as Tomcat, with different environment sets, parameters, configuration files, and monitor the output in a tail fashion.
+This tool is designed to help developers and admins who need to run processes or batch commands, such as Tomcat, with different environment sets, parameters, configuration files, and monitor the output in a tail fashion.
 Ideal for developers, who needs to run batches, builds, application servers, services, and much more.
-Launches can be set to automatic, cascaded, stopped and monitored. URL monitoring is included, to check for web applications availability and remote web-sites.
+Launches can be set to automatic, cascaded, stopped and monitored. URL monitoring is included, to check for web applications availability and remote web-sites, such as cloud services.
 
 #### QuickManager Main Window
 
@@ -64,8 +66,19 @@ Environments can be named, in order to allow multiple environments to be defined
   </env>
 ```
 
+Log files can be monitored as well, using the built in OutputViewer
+
+```xml
+  <logs>
+    <log autoStart="true">
+      <path>c:\var\log\example.log</path>
+    </log>
+  </logs>
+```
+
 ### OutputViewer
-A multi tail for Windows, designed to follow log files, highlight, search, and much more. Give it a try.
+A multi tail for Windows, designed to follow log files, highlight, search, filter, and much more. Give it a try.
+Embeded JSON viewer, XML extractor, send log to mail, save to file, etc.
 
 ![OutputViewer](https://itlezy.github.io/images/OV%20_%20Examples.png)
 
