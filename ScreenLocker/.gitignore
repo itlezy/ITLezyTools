@@ -1,0 +1,7 @@
+#Ignore SVN Stuff
+.svn
+#General Exceptions
+bin/
+obj/
+target/
+*.suo
